@@ -6,7 +6,6 @@
  * Time: 22:00
  */
 ini_set('display_error', 1);
-echo 'test';
 $smv = new SVM();
 
 $languageFrequencies = array(
@@ -67,9 +66,7 @@ $languageFrequencies = array(
         26 => 0.01390,
     )
 );
-echo 'test';
 $model = $smv->train($languageFrequencies);
-echo 'test1';
 $englishText = array(
     1 => 0.09678,
     2 => 0.01210,
@@ -99,6 +96,6 @@ $englishText = array(
     26 => 0.00806
 );
 
-$result = $model->predict($data);
+$result = $model->predict($englishText);
 
-echo 'This text is in ';
+echo 'This text is in ' . ($result ? 'english' : 'dutch');
